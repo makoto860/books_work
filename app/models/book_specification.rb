@@ -1,0 +1,2 @@
+class BookSpecification < ApplicationRecord
+end
