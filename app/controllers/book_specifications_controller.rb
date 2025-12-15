@@ -22,9 +22,17 @@ class BookSpecificationsController < ApplicationController
   end
 
   def edit
+    @book_specification = BookSpecification.find(params[:id])
   end
 
   def update
+    @book_specification = BookSpecification.find(params[:id])
+    if @book_specification.update(params.require(:book_specification).permit(:title, :number_of_copies, :number_of_machines, :note, :deadline, :author))
+      flash[:notice] = "仕様書IDの#{@book_specification.id}を変更しました"
+      redirect_to :book_specifications
+    else
+      render "edit"
+    end
   end
 
   def destroy
