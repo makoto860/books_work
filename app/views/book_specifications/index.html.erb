@@ -1,7 +1,9 @@
 <h1>BookSpecifications#index</h1>
 <p>Find me in app/views/book_specifications/index.html.erb</p>
+<% if flash[:notice] %>
+  <h1 class="notice"><%= flash[:notice] %></h1>
+<% end %>
 <h3>仕様書一覧</h3>
-<h3>ユーザー情報一覧</h3>
 <table>
   <thead>
     <tr>
@@ -14,12 +16,22 @@
       <th>作成した人</th>
       <th>更新日</th>
       <th>作成日</th>
+      <th>情報</th>
     </tr>
   </thead>
   <tbody>
     <% @book_specifications.each do |book_specification| %>
       <tr>
         <td><%= book_specification.id %></td>
+        <td><%= book_specification.title %></td>
+        <td><%= book_specification.number_of_copies %></td>
+        <td><%= book_specification.number_of_machines %></td>
+        <td><%= book_specification.note %></td>
+        <td><%= book_specification.deadline %></td>
+        <td><%= book_specification.author %></td>
+        <td><%= book_specification.created_at %></td>
+        <td><%= book_specification.updated_at %></td>
+        <td><%= link_to "情報", book_specification %></td>
       </tr>
       <% end %>
   </tbody>

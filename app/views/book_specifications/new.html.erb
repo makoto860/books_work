@@ -1,0 +1,39 @@
+<h3>仕様書新規作成</h3>
+<%= form_with model: @book_specification do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :title, "タイトル名" %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :number_of_copies, "部数" %></th>
+      <td><%= f.number_field :number_of_copies %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :number_of_machines, "台数" %></th>
+      <td><%= f.number_field :number_of_machines %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :note, "注意事項" %></th>
+      <td><%= f.text_area :note %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :deadline, "納期" %></th>
+      <td><%= f.date_field :deadline %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :author, "作成者" %></th>
+      <td><%= f.text_field :author %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "登録完了する"%></li>
+    </ul>
+  </div>
+<% end %>
