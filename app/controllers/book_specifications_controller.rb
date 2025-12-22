@@ -19,6 +19,8 @@ class BookSpecificationsController < ApplicationController
 
   def show
     @book_specification = BookSpecification.find(params[:id])
+    @work_progresses = @book_specification.work_progresses
+    @work_progress = @work_progresses.new
   end
 
   def edit
