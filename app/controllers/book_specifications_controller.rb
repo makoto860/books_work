@@ -10,10 +10,11 @@ class BookSpecificationsController < ApplicationController
   def create
     @book_specification = BookSpecification.new(params.require(:book_specification).permit(:title, :number_of_copies, :number_of_machines, :note, :deadline, :author))
     if @book_specification.save
-      flash[:notice] = "仕様書を新規登録しました"
+      flash[:notice] = "仕様書IDの#{@book_specification.id}を新規登録しました"
       redirect_to :book_specifications
     else
-      render "new"
+      flash[:alert] = "仕様書IDの#{@book_specification.id}を新規登録できませんでした"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -33,7 +34,8 @@ class BookSpecificationsController < ApplicationController
       flash[:notice] = "仕様書IDの#{@book_specification.id}を変更しました"
       redirect_to :book_specifications
     else
-      render "edit"
+      flash[:alert] = "仕様書IDが#{@book_specification.id}の情報を更新できませんでした"
+      render "edit", status: :unprocessable_entity
     end
   end
 
