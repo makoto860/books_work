@@ -18,6 +18,7 @@
       <th>作成日</th>
       <th>情報</th>
       <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
   <tbody>
@@ -34,8 +35,9 @@
         <td><%= book_specification.updated_at %></td>
         <td><%= link_to "情報", book_specification %></td>
         <td><%= link_to "編集", [:edit, book_specification] %></td>
+        <td><%= link_to "削除", book_specification, data: { turbo_method: :delete, turbo_confirm: "仕様書を削除しますか？" } %></td>
       </tr>
-      <% end %>
+    <% end %>
   </tbody>
 </table>
 <p><%= link_to "仕様書を新規作成", :new_book_specification %></p>

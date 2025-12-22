@@ -36,5 +36,9 @@ class BookSpecificationsController < ApplicationController
   end
 
   def destroy
+    @book_specification = BookSpecification.find(params[:id])
+    @book_specification.destroy
+    flash[:notice] = "仕様書を削除しました"
+    redirect_to :book_specifications
   end
 end
