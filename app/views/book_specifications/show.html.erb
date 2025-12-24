@@ -1,3 +1,4 @@
+<h1>book_specifications/show.html.erb</h1>
 <h3>仕様書情報</h3>
 <table>
   <tr>
@@ -29,3 +30,27 @@
     <td><%= @book_specification.author %></td>
   </tr>
 </table>
+
+<h3>作業フォーム</h3>
+作成した仕様書に仕事の進捗を紐付ける
+work_progresses/index.html.erbに遷移する
+<%= form_with model: [@book_specification, @work_progress] do |f| %>
+  <ul>
+    <li>
+      階数
+      <%= f.number_field :floor, value: 1 %>
+    </li>
+    <li>
+      <%= f.submit "作業を登録する" %>
+    </li>
+  </ul>
+<% end %>
+<%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
+
+t.string :status
+t.integer :floor
+t.text :comment
+t.datetime :start_time
+t.datetime :end_time
+t.string :manager
+t.integer :book_specification_id

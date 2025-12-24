@@ -26,10 +26,13 @@
 
   <body>
     <header>
+      app/views/layouts/application.html.erb
       <h1>製本管理システム</h1>
       <p><%= link_to "トップ", :root %></p>
       <p><%= link_to "仕様書一覧", :book_specifications %></p>
-      <p><%= link_to "作業進捗一覧", :work_progresses %></p>
+      <% if @book_specification.present? %>
+        <%= link_to "作業内容一覧", book_specification_work_progresses_path(@book_specification) %>
+      <% end %>
     </header>
     <%= yield %>
     <footer>

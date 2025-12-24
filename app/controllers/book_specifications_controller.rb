@@ -1,4 +1,6 @@
 class BookSpecificationsController < ApplicationController
+  before_action :set_book_specification, only: [:show, :edit, :update, :destroy]
+
   def index
     @book_specifications = BookSpecification.all
   end
@@ -8,10 +10,10 @@ class BookSpecificationsController < ApplicationController
   end
 
   def create
-    @book_specification = BookSpecification.new(params.require(:book_specification).permit(:title, :number_of_copies, :number_of_machines, :note, :deadline, :author))
+    @book_specification = BookSpecification.new(book_specification_params)
     if @book_specification.save
       flash[:notice] = "仕様書IDの#{@book_specification.id}を新規登録しました"
-      redirect_to :book_specifications
+      redirect_to book_specifications_path
     else
       flash[:alert] = "仕様書IDの#{@book_specification.id}を新規登録できませんでした"
       render :new, status: :unprocessable_entity
@@ -19,20 +21,17 @@ class BookSpecificationsController < ApplicationController
   end
 
   def show
-    @book_specification = BookSpecification.find(params[:id])
     @work_progresses = @book_specification.work_progresses
-    @work_progress = @work_progresses.new
+    @work_progress = @book_specification.work_progresses.build
   end
 
   def edit
-    @book_specification = BookSpecification.find(params[:id])
   end
 
   def update
-    @book_specification = BookSpecification.find(params[:id])
-    if @book_specification.update(params.require(:book_specification).permit(:title, :number_of_copies, :number_of_machines, :note, :deadline, :author))
+    if @book_specification.update(book_specification_params)
       flash[:notice] = "仕様書IDの#{@book_specification.id}を変更しました"
-      redirect_to :book_specifications
+      redirect_to book_specifications_path
     else
       flash[:alert] = "仕様書IDが#{@book_specification.id}の情報を更新できませんでした"
       render "edit", status: :unprocessable_entity
@@ -40,9 +39,18 @@ class BookSpecificationsController < ApplicationController
   end
 
   def destroy
-    @book_specification = BookSpecification.find(params[:id])
     @book_specification.destroy
     flash[:notice] = "仕様書を削除しました"
-    redirect_to :book_specifications
+    redirect_to book_specifications_path
+  end
+
+  private
+
+  def set_book_specification
+    @book_specification = BookSpecification.find(params[:id])
+  end
+
+  def book_specification_params
+    params.require(:book_specification).permit(:title, :number_of_copies, :number_of_machines, :note, :deadline, :author)
   end
 end
