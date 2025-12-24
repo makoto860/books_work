@@ -37,8 +37,23 @@ work_progresses/index.html.erbに遷移する
 <%= form_with model: [@book_specification, @work_progress] do |f| %>
   <ul>
     <li>
-      階数
-      <%= f.number_field :floor, value: 1 %>
+      階数<%= f.number_field :floor, value: 1 %>
+    </li>
+    <li>
+      <%= f.check_box :status, {}, "1" %>完了
+      <%= f.check_box :status, {}, "0" %>未完了
+    </li>
+    <li>
+      コメント<%= f.text_area :comment, name: 'work_progress[comment]' %>
+    </li>
+    <li>
+      開始時間<%= f.date_field :start_time, name: 'work_progress[start_time]' %>
+    </li>
+    <li>
+      終了時間<%= f.date_field :end_time, name: 'work_progress[end_time]' %>
+    </li>
+    <li>
+      担当者<%= f.text_field :manager, name: 'work_progress[manager]' %>
     </li>
     <li>
       <%= f.submit "作業を登録する" %>
@@ -46,11 +61,3 @@ work_progresses/index.html.erbに遷移する
   </ul>
 <% end %>
 <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
-
-t.string :status
-t.integer :floor
-t.text :comment
-t.datetime :start_time
-t.datetime :end_time
-t.string :manager
-t.integer :book_specification_id
