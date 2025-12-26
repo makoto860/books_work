@@ -1,19 +1,20 @@
+<%= render "shared/error", model: @book_specification %>
 <h3>仕様書を編集</h3>
 <%= form_with model: @book_specification do |f| %>
   <table>
     <tr>
       <th><%= f.label :title, "タイトル名" %></th>
-      <td><%= f.text_field :title %></td>
+      <td><%= f.text_field :title, placeholder: "必須" %></td>
     </tr>
 
     <tr>
       <th><%= f.label :number_of_copies, "部数" %></th>
-      <td><%= f.number_field :number_of_copies %>部</td>
+      <td><%= f.number_field :number_of_copies, placeholder: "必須" %>部</td>
     </tr>
 
     <tr>
       <th><%= f.label :number_of_machines, "台数" %></th>
-      <td><%= f.number_field :number_of_machines %>台</td>
+      <td><%= f.number_field :number_of_machines, placeholder: "必須" %>台</td>
     </tr>
 
     <tr>
@@ -28,7 +29,7 @@
 
     <tr>
       <th><%= f.label :author, "作成者" %></th>
-      <td><%= f.text_field :author %></td>
+      <td><%= f.text_field :author, placeholder: "必須" %></td>
     </tr>
   </table>
   <div><%= f.submit "仕様書の編集を完了する" %></div>
