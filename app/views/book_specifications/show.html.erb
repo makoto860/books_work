@@ -12,31 +12,34 @@
   <li>変更した時間: <%= @book_specification.updated_at.to_formatted_s(:datetime_jp) %></li>
 </ul>
 
+<%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
+バリデーション
+<%= render "shared/error", model: @work_progress %>
 <h3>作業進捗登録フォーム</h3>
 <%= form_with model: [@book_specification, @work_progress] do |f| %>
   <ul>
     <li>
-      階数<%= f.number_field :floor, value: 1 %>
-    </li>
-    <li>
+      作業状態
       <%= f.radio_button :status, "1" %>完了
       <%= f.radio_button :status, "0" %>未完了
     </li>
     <li>
-      コメント<%= f.text_area :comment %>
+      階数: <%= f.number_field :floor, value: 1 %>
     </li>
     <li>
-      開始時間<%= f.datetime_local_field :start_time %>
+      コメント: <%= f.text_area :comment %>
     </li>
     <li>
-      終了時間<%= f.datetime_local_field :end_time %>
+      開始時間: <%= f.datetime_local_field :start_time %>
     </li>
     <li>
-      担当者<%= f.text_field :manager %>
+      終了時間: <%= f.datetime_local_field :end_time %>
+    </li>
+    <li>
+      担当者: <%= f.text_field :manager, placeholder: "必須" %>
     </li>
     <li>
       <%= f.submit "作業進捗を登録する" %>
     </li>
   </ul>
 <% end %>
-<%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>

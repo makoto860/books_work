@@ -14,6 +14,7 @@ class WorkProgressesController < ApplicationController
     if @work_progress.save
       redirect_to book_specification_work_progresses_path(@book_specification)
     else
+      flash[:alert] = "作業進捗を新規登録できませんでした"
       render "book_specifications/show", status: :unprocessable_entity
     end
   end
@@ -25,6 +26,7 @@ class WorkProgressesController < ApplicationController
     if @work_progress.update(work_progress_params)
       redirect_to book_specification_work_progresses_path(@book_specification), notice: "作業進捗を更新しました"
     else
+      flash[:alert] = "作業進捗を編集できませんでした"
       render :edit, status: :unprocessable_entity
     end
   end
