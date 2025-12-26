@@ -1,0 +1,39 @@
+<h1>app/views/work_progresses/edit.html.erb</h1>
+<h1>作業進捗を編集する</h1>
+<%= form_with model: [@book_specification, @work_progress], local: true do |f| %>
+  <div>
+    <p>
+      <%= f.radio_button :status, "1" %>完了
+      <%= f.radio_button :status, "0" %>未完了
+    </p>
+
+    <p>
+      <%= f.label :floor, "階" %><br>
+      <%= f.number_field :floor %>
+    </p>
+
+    <p>
+      <%= f.label :comment, "コメント" %><br>
+      <%= f.text_field :comment %>
+    </p>
+
+    <p>
+      <%= f.label :start_time, "開始時間" %><br>
+      <%= f.datetime_select :start_time %>
+    </p>
+
+    <p>
+      <%= f.label :end_time, "終了時間" %><br>
+      <%= f.datetime_select :end_time %>
+    </p>
+
+    <p>
+      <%= f.label :manager, "担当者" %><br>
+      <%= f.text_field :manager %>
+    </p>
+
+    <div>
+      <%= f.submit "編集を完了する" %>
+    </div>
+  </div>
+<% end %>

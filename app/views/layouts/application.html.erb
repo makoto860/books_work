@@ -29,12 +29,13 @@
       app/views/layouts/application.html.erb
       <h1>製本管理システム</h1>
       <p><%= link_to "トップ", :root %></p>
-      <% if current_book_specification&.persisted? %>
-        <%= link_to "作業進捗一覧", book_specification_work_progresses_path(current_book_specification) %>
-        <%= link_to "仕様書一覧", book_specifications_path %>
+      <%= link_to "仕様書一覧", book_specifications_path %>
+      <% if flash[:notice] %>
+        <h1 class="notice"><%= flash[:notice] %></h1>
       <% else %>
-        <%= link_to "仕様書一覧", book_specifications_path %>
+        <h1 class="allert"><%= flash[:allert] %></h1>
       <% end %>
+      <h1>現在の日付：<%= Date.current.strftime("%Y年%m月%d日") %></h1>
     </header>
     <%= yield %>
     <footer>
