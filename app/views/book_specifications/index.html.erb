@@ -25,13 +25,13 @@
         <td><%= book_specification.number_of_copies %></td>
         <td><%= book_specification.number_of_machines %></td>
         <td><%= book_specification.note %></td>
-        <td><%= book_specification.deadline %></td>
+        <td><%= book_specification.deadline.to_formatted_s(:date_jp) %></td>
         <td><%= book_specification.author %></td>
-        <td><%= book_specification.created_at %></td>
-        <td><%= book_specification.updated_at %></td>
-        <td><%= link_to "情報", book_specification %></td>
-        <td><%= link_to "編集", [:edit, book_specification] %></td>
-        <td><%= link_to "削除", book_specification, data: { turbo_method: :delete, turbo_confirm: "仕様書を削除しますか？" } %></td>
+        <td><%= book_specification.created_at.to_formatted_s(:datetime_jp) %></td>
+        <td><%= book_specification.updated_at.to_formatted_s(:datetime_jp) %></td>
+        <td><%= link_to "仕様書情報", book_specification %></td>
+        <td><%= link_to "仕様書編集", [:edit, book_specification] %></td>
+        <td><%= link_to "仕様書削除", book_specification, data: { turbo_method: :delete, turbo_confirm: "仕様書を削除しますか？" } %></td>
       </tr>
     <% end %>
   </tbody>
