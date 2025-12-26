@@ -1,35 +1,16 @@
 <h1>book_specifications/show.html.erb</h1>
 <h3>仕様書情報</h3>
-<table>
-  <tr>
-    <th>本のID</th>
-    <td><%= @book_specification.id %></td>
-  </tr>
-  <tr>
-    <th>本のタイトル</th>
-    <td><%= @book_specification.title %></td>
-  </tr>
-  <tr>
-    <th>部数</th>
-    <td><%= @book_specification.number_of_copies %></td>
-  </tr>
-  <tr>
-    <th>台数</th>
-    <td><%= @book_specification.number_of_machines %></td>
-  </tr>
-  <tr>
-    <th>注意事項</th>
-    <td><%= @book_specification.note %></td>
-  </tr>
-  <tr>
-    <th>納期</th>
-    <td><%= @book_specification.deadline %></td>
-  </tr>
-  <tr>
-    <th>作成者</th>
-    <td><%= @book_specification.author %></td>
-  </tr>
-</table>
+<ul>
+  <li>本のID: <%= @book_specification.id %></li>
+  <li>本のタイトル: <%= @book_specification.title %></li>
+  <li>部数: <%= @book_specification.number_of_copies %>部</li>
+  <li>台数: <%= @book_specification.number_of_machines %>台</li>
+  <li>注意事項: <%= @book_specification.note %></li>
+  <li>納期: <%= @book_specification.deadline.to_formatted_s(:date_jp) %></li>
+  <li>作成者: <%= @book_specification.author %></li>
+  <li>作成した時間: <%= @book_specification.created_at.to_formatted_s(:datetime_jp) %></li>
+  <li>変更した時間: <%= @book_specification.updated_at.to_formatted_s(:datetime_jp) %></li>
+</ul>
 
 <h3>作業進捗登録フォーム</h3>
 <%= form_with model: [@book_specification, @work_progress] do |f| %>

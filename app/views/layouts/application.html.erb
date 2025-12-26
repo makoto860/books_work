@@ -35,10 +35,10 @@
       <% else %>
         <h1 class="alert"><%= flash[:alert] %></h1>
       <% end %>
-      </header>
-      <%= yield %>
-      <footer>
-      <h1>現在の日付：<%= Date.current.strftime("%Y年%m月%d日") %></h1>
+    </header>
+    <%= yield %>
+    <footer>
+      <h1>現在の日付：<%= Time.current.strftime("%Y年%m月%d日%H時%M分") %></h1>
     </footer>
   </body>
 </html>
