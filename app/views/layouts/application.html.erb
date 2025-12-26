@@ -33,13 +33,12 @@
       <% if flash[:notice] %>
         <h1 class="notice"><%= flash[:notice] %></h1>
       <% else %>
-        <h1 class="allert"><%= flash[:allert] %></h1>
+        <h1 class="alert"><%= flash[:alert] %></h1>
       <% end %>
+      </header>
+      <%= yield %>
+      <footer>
       <h1>現在の日付：<%= Date.current.strftime("%Y年%m月%d日") %></h1>
-    </header>
-    <%= yield %>
-    <footer>
-      <h1>フッター</h1>
     </footer>
   </body>
 </html>

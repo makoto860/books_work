@@ -4,17 +4,17 @@
   <table>
     <tr>
       <th><%= f.label :title, "タイトル名" %></th>
-      <td><%= f.text_field :title %>（必須）</td>
+      <td><%= f.text_field :title %>(必須)</td>
     </tr>
 
     <tr>
       <th><%= f.label :number_of_copies, "部数" %></th>
-      <td><%= f.number_field :number_of_copies %>（必須）</td>
+      <td><%= f.number_field :number_of_copies %>(必須)</td>
     </tr>
 
     <tr>
       <th><%= f.label :number_of_machines, "台数" %></th>
-      <td><%= f.number_field :number_of_machines %>（必須）</td>
+      <td><%= f.number_field :number_of_machines %>(必須)</td>
     </tr>
 
     <tr>
@@ -24,12 +24,12 @@
 
     <tr>
       <th><%= f.label :deadline, "納期" %></th>
-      <td><%= f.date_field :deadline %>（必須）と納期は今日が1日なら31日以降はだめ</td>
+      <td><%= f.date_field :deadline %>(必須)と納期は今日以降</td>
     </tr>
 
     <tr>
       <th><%= f.label :author, "作成者" %></th>
-      <td><%= f.text_field :author %>（必須）</td>
+      <td><%= f.text_field :author %>(必須)</td>
     </tr>
   </table>
   <div><%= f.submit "仕様書の登録を完了する"%></div>

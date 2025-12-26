@@ -6,8 +6,14 @@ class BookSpecification < ApplicationRecord
   validates :number_of_machines, presence: true
   validates :deadline, presence: true
   validates :author, presence: true
+  validate :deadline_after_today
 
-  def deadline_today
-    errors.add(:deadline, "納期は今日以降の日付を選択してください") if deadline < check_in_date
+  private
+
+  def deadline_after_today
+    return if deadline.blank?
+    if deadline < Date.current
+      errors.add(:deadline, "納期は今日以降の日付を選択してください")
+    end
   end
 end
