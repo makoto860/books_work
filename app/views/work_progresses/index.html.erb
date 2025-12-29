@@ -1,6 +1,5 @@
 <p>Find me in app/views/work_progresses/index.html.erb</p>
 <h1>作業進捗一覧</h1>
-
 <ul>
   <% @work_progresses.each do |work_progress| %>
     <% if work_progress.status == "1" %>
@@ -11,8 +10,8 @@
     </li>
     <li>階数: <%= work_progress.floor %></li>
     <li>コメント: <%= work_progress.comment %></li>
-    <li>開始時間: <%= work_progress.start_time %></li>
-    <li>終了時間: <%= work_progress.end_time %></li>
+    <li>開始時間: <%= work_progress.start_time.to_formatted_s(:datetime_jp) %></li>
+    <li>終了時間: <%= work_progress.end_time.to_formatted_s(:datetime_jp) %></li>
     <li>担当者: <%= work_progress.manager %></li>
     <li>仕様書のID: <%= work_progress.book_specification.id %></li>
     <li><th>本のタイトル: <%= work_progress.book_specification.title %></li>

@@ -3,16 +3,20 @@
 <h3>仕様書を編集</h3>
 <ul>
   <%= form_with model: @book_specification do |f| %>
+    <li>必須</li>
     <li><%= f.label :title, "タイトル名" %></li>
-    <li>必須<%= f.text_field :title %></li>
+    <li><%= f.text_field :title %></li>
+    <li>必須</li>
     <li><%= f.label :number_of_copies, "部数" %></li>
-    <li>必須<%= f.number_field :number_of_copies %>部</li>
+    <li><%= f.number_field :number_of_copies %>部</li>
     <li><%= f.label :note, "注意事項" %></li>
     <li><%= f.text_area :note %></li>
+    <li>必須</li>
     <li><%= f.label :deadline, "納期" %></li>
-    <li>必須<%= f.date_field :deadline %></li>
+    <li><%= f.date_field :deadline %></li>
+    <li>必須</li>
     <li><%= f.label :author, "作成者" %></li>
-    <li>必須<%= f.text_field :author %></li>
+    <li><%= f.text_field :author %></li>
     <div><%= f.submit "仕様書の編集を完了する" %></div>
   <% end %>
 </ul>

@@ -3,18 +3,12 @@
 <h3>仕様書一覧</h3>
 <ul>
   <% @book_specifications.each do |book_specification| %>
-    <li>仕様書のID: <%= book_specification.id %></li>
     <li>本のタイトル: <%= book_specification.title %></li>
-    <li>部数: <%= book_specification.number_of_copies %>部</li>
-    <li>台数: <%= book_specification.number_of_machines %>台</li>
-    <li>注意事項: <%= book_specification.note %></li>
-    <li>納期: <%= book_specification.deadline.to_formatted_s(:date_jp) %></li>
-    <li>作成した人: <%= book_specification.author %></li>
     <li>作成日: <%= book_specification.created_at.to_formatted_s(:datetime_jp) %></li>
     <li>更新日: <%= book_specification.updated_at.to_formatted_s(:datetime_jp) %></li>
     <li><%= link_to "仕様書情報", book_specification %></li>
     <li><%= link_to "仕様書編集", [:edit, book_specification] %></li>
     <li><%= link_to "仕様書削除", book_specification, data: { turbo_method: :delete, turbo_confirm: "仕様書を削除しますか？" } %></li>
-    -------------------------------------------------------------------------------------------------------------------------------------------------------
+    <br>
   <% end %>
 </ul>

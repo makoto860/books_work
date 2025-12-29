@@ -12,7 +12,7 @@ class WorkProgressesController < ApplicationController
   def create
     @work_progress = @book_specification.work_progresses.build(work_progress_params)
     if @work_progress.save
-      redirect_to book_specification_work_progresses_path(@book_specification)
+      redirect_to book_specification_work_progresses_path(@book_specification), notice: "作業進捗情報を新規登録しました"
     else
       flash[:alert] = "作業進捗を新規登録できませんでした"
       render "book_specifications/show", status: :unprocessable_entity
@@ -24,9 +24,10 @@ class WorkProgressesController < ApplicationController
 
   def update
     if @work_progress.update(work_progress_params)
+      flash[:notice] = "作業進捗を変更しました"
       redirect_to book_specification_work_progresses_path(@book_specification), notice: "作業進捗を更新しました"
     else
-      flash[:alert] = "作業進捗を編集できませんでした"
+      flash[:alert] = "作業進捗を変更できませんでした"
       render :edit, status: :unprocessable_entity
     end
   end
