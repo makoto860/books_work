@@ -1,36 +1,18 @@
+<h1>book_specifications/edit</h1>
 <%= render "shared/error", model: @book_specification %>
 <h3>仕様書を編集</h3>
-<%= form_with model: @book_specification do |f| %>
-  <table>
-    <tr>
-      <th><%= f.label :title, "タイトル名" %></th>
-      <td><%= f.text_field :title, placeholder: "必須" %></td>
-    </tr>
-
-    <tr>
-      <th><%= f.label :number_of_copies, "部数" %></th>
-      <td><%= f.number_field :number_of_copies, placeholder: "必須" %>部</td>
-    </tr>
-
-    <tr>
-      <th><%= f.label :number_of_machines, "台数" %></th>
-      <td><%= f.number_field :number_of_machines, placeholder: "必須" %>台</td>
-    </tr>
-
-    <tr>
-      <th><%= f.label :note, "注意事項" %></th>
-      <td><%= f.text_area :note %></td>
-    </tr>
-
-    <tr>
-      <th><%= f.label :deadline, "納期" %></th>
-      <td><%= f.date_field :deadline %></td>
-    </tr>
-
-    <tr>
-      <th><%= f.label :author, "作成者" %></th>
-      <td><%= f.text_field :author, placeholder: "必須" %></td>
-    </tr>
-  </table>
-  <div><%= f.submit "仕様書の編集を完了する" %></div>
-<% end %>
+<ul>
+  <%= form_with model: @book_specification do |f| %>
+    <li><%= f.label :title, "タイトル名" %></li>
+    <li>必須<%= f.text_field :title %></li>
+    <li><%= f.label :number_of_copies, "部数" %></li>
+    <li>必須<%= f.number_field :number_of_copies %>部</li>
+    <li><%= f.label :note, "注意事項" %></li>
+    <li><%= f.text_area :note %></li>
+    <li><%= f.label :deadline, "納期" %></li>
+    <li>必須<%= f.date_field :deadline %></li>
+    <li><%= f.label :author, "作成者" %></li>
+    <li>必須<%= f.text_field :author %></li>
+    <div><%= f.submit "仕様書の編集を完了する" %></div>
+  <% end %>
+</ul>

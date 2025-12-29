@@ -13,7 +13,6 @@
 </ul>
 
 <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
-バリデーション
 <%= render "shared/error", model: @work_progress %>
 <h3>作業進捗登録フォーム</h3>
 <%= form_with model: [@book_specification, @work_progress] do |f| %>
