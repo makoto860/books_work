@@ -17,22 +17,20 @@
 <h3>作業進捗登録フォーム</h3>
 <%= form_with model: [@book_specification, @work_progress] do |f| %>
   <ul>
-    <li>
-      作業状態
+    <li>作業状態、必須</li>
       <%= f.radio_button :status, "1" %>完了
       <%= f.radio_button :status, "0" %>未完了
-    </li>
     <li>
-      階数: <%= f.number_field :floor, value: 1 %>
+      階数、必須: <%= f.number_field :floor, value: 1 %>
     </li>
     <li>
       コメント: <%= f.text_area :comment %>
     </li>
     <li>
-      開始時間: <%= f.datetime_local_field :start_time %>
+      開始時間、必須: <%= f.datetime_local_field :start_time %>
     </li>
     <li>
-      終了時間: <%= f.datetime_local_field :end_time %>
+      終了時間、必須: <%= f.datetime_local_field :end_time %>
     </li>
     <li>
       担当者: <%= f.text_field :manager, placeholder: "必須" %>
