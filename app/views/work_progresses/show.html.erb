@@ -1,6 +1,7 @@
 <h1>work_progresses/show.html.erb</h1>
 <h1>作業進捗情報</h1>
 <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
+<%= link_to "作業進捗を編集", edit_book_specification_work_progress_path(@book_specification) %>
 <ul>
   <li>仕様書のID: <%= @work_progress.book_specification.id %></li>
   <li>本のタイトル: <%= @work_progress.book_specification.title %></li>

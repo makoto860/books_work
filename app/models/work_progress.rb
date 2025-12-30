@@ -9,6 +9,10 @@ class WorkProgress < ApplicationRecord
   validate :start_time_after_today
   validate :end_time_after_start_time
 
+  scope :incomplete_first, -> { order(status: :asc) }
+  scope :complete_first,   -> { order(status: :desc) }
+  scope :newest,           -> { order(created_at: :desc) }
+
   private
 
   def start_time_after_today

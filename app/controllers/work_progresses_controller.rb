@@ -4,6 +4,20 @@ class WorkProgressesController < ApplicationController
 
   def index
     @work_progresses = WorkProgress.all
+
+    @sort_list = [
+      ["未完了が上順", "incomplete_first"],
+      ["完了が上順", "complete_first"],
+      ["作成日が新しい順", "newest"]
+    ]
+
+    @sorted = params[:sort]
+
+    @work_progresses = WorkProgress.includes(:book_specification)
+
+    if @sorted.present? && WorkProgress.respond_to?(@sorted)
+      @work_progresses = @work_progresses.public_send(@sorted)
+    end
   end
 
   def new

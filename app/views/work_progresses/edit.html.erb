@@ -1,6 +1,7 @@
 <h1>app/views/work_progresses/edit.html.erb</h1>
 <h1>作業進捗を編集する</h1>
 <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
+<%= link_to "作業進捗情報", book_specification_work_progress_path(@book_specification) %>
 <%= render "shared/error", model: @work_progress %>
 <ul>
   <%= form_with model: [@book_specification, @work_progress], local: true do |f| %>
@@ -32,7 +33,7 @@
     <li>必須</li>
     <li>
       <%= f.label :manager, "担当者" %>
-      <%= f.text_field :manager %>
+      <%= f.text_field :manager, placeholder: "必須" %>
     </li>
     <div>
       <%= f.submit "作業進捗を編集する" %>
