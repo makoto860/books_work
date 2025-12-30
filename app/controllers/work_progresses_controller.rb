@@ -6,9 +6,14 @@ class WorkProgressesController < ApplicationController
     @work_progresses = WorkProgress.all
 
     @sort_list = [
-      ["未完了が上順", "incomplete_first"],
-      ["完了が上順", "complete_first"],
-      ["作成日が新しい順", "newest"]
+      ["未完了が上順", "incomplete"],
+      ["完了が上順", "complete"],
+      ["作成日が新しい順", "newest"],
+      ["変更日が新しい順", "editest"],
+      ["階数低い順", "floor_low"],
+      ["階数高い順", "floor_high"],
+      ["部数が多い順", "copies_desc"],
+      ["部数が少ない順", "copies_asc"]
     ]
 
     @sorted = params[:sort]
