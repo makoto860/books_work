@@ -1,6 +1,6 @@
 class WorkProgressesController < ApplicationController
   before_action :set_book_specification
-  before_action :set_work_progress, only: [:edit, :update]
+  before_action :set_work_progress, only: [:show, :edit, :update]
 
   def index
     @work_progresses = WorkProgress.all
@@ -17,6 +17,9 @@ class WorkProgressesController < ApplicationController
       flash[:alert] = "作業進捗を新規登録できませんでした"
       render "book_specifications/show", status: :unprocessable_entity
     end
+  end
+
+  def show
   end
 
   def edit
