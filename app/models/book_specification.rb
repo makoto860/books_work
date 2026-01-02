@@ -8,6 +8,29 @@ class BookSpecification < ApplicationRecord
   validates :author, presence: true
   validate :deadline_after_today
 
+  scope :sorted, ->(sort) {
+    case sort
+    when "number_of_copies_desc"
+      order(number_of_copies: :desc)
+    when "number_of_copies_asc"
+      order(number_of_copies: :asc)
+    when "deadline_desc"
+      order(deadline: :desc)
+    when "deadline_asc"
+      order(deadline: :asc)
+    when "created_desc"
+      order(created_at: :desc)
+    when "created_asc"
+      order(created_at: :asc)
+    when "updated_desc"
+      order(updated_at: :desc)
+    when "updated_asc"
+      order(updated_at: :asc)
+    else
+      order(created_at: :desc)
+    end
+  }
+
   private
 
   def deadline_after_today

@@ -28,7 +28,6 @@
     <header>
       app/views/layouts/application.html.erb
       <h1>製本管理システム</h1>
-      <p><%= link_to "トップ", :root %></p>
       <%= link_to "仕様書一覧", book_specifications_path %>
       <% if flash[:notice] %>
         <h1 class="notice"><%= flash[:notice] %></h1>

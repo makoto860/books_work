@@ -3,6 +3,19 @@ class BookSpecificationsController < ApplicationController
 
   def index
     @book_specifications = BookSpecification.all
+
+    @book_specification_sort_list = [
+      ["部数(多い順)", "number_of_copies_desc"],
+      ["部数(少ない順)", "number_of_copies_asc"],
+      ["納期(新しい順)", "deadline_desc"],
+      ["納期(古い順)", "deadline_asc"],
+      ["作成日(新しい順)", "created_desc"],
+      ["作成日(古い順)", "created_asc"],
+      ["更新日(新しい順)", "updated_desc"],
+      ["更新日(古い順)", "updated_asc"]
+    ]
+
+    @book_specifications = BookSpecification.sorted(params[:sort])
   end
 
   def new

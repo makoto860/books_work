@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'homes/top', to: 'homes#top'
   resources :book_specifications do
     resources :work_progresses, only: [:index, :create, :show, :edit, :update]
   end
@@ -15,5 +14,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "homes#top"
+  root "book_specifications#index"
 end

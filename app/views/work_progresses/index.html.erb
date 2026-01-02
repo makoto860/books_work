@@ -11,7 +11,7 @@
       <li>作業状況は未完了です</li>
     <% end %>
     <li><%= work_progress.floor %>階</li>
-    <li>部数: <%= work_progress.book_specification.number_of_copies %>並び替え</li>
+    <li>部数: <%= work_progress.book_specification.number_of_copies %></li>
     <li>作成時間: <%= work_progress.created_at.to_formatted_s(:datetime_jp) %></li>
     <li>更新時間: <%= work_progress.updated_at.to_formatted_s(:datetime_jp) %></li>
     <li><%= link_to "作業進捗情報", book_specification_work_progress_path(work_progress.book_specification, work_progress) %></li>
