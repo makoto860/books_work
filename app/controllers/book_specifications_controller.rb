@@ -3,6 +3,7 @@ class BookSpecificationsController < ApplicationController
 
   def index
     @book_specifications = BookSpecification.all
+    @book_specification = @book_specifications.first
 
     @book_specification_sort_list = [
       ["部数(多い順)", "number_of_copies_desc"],
