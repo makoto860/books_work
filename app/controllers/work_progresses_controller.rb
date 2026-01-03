@@ -3,26 +3,18 @@ class WorkProgressesController < ApplicationController
   before_action :set_work_progress, only: [:show, :edit, :update]
 
   def index
-    @work_progresses = WorkProgress.all
-
-    @sort_list = [
-      ["未完了が上順", "incomplete"],
-      ["完了が上順", "complete"],
-      ["作成日が新しい順", "newest"],
-      ["変更日が新しい順", "editest"],
-      ["階数低い順", "floor_low"],
-      ["階数高い順", "floor_high"],
-      ["部数が多い順", "copies_desc"],
-      ["部数が少ない順", "copies_asc"]
+    @work_progresses_sort_list = [
+      ["未完了順", "status_asc"],
+      ["完了順", "status_desc"],
+      ["部数が多い順", "number_copies_desc"],
+      ["部数が少ない順", "number_copies_asc"],
+      ["階数が高い順", "floor_desc"],
+      ["階数が低い順", "floor_asc"],
+      ["納期が近い順", "deadline_desc"],
+      ["納期が遠い順", "deadline_asc"]
     ]
 
-    @sorted = params[:sort]
-
-    @work_progresses = WorkProgress.includes(:book_specification)
-
-    if @sorted.present? && WorkProgress.respond_to?(@sorted)
-      @work_progresses = @work_progresses.public_send(@sorted)
-    end
+    @work_progresses = WorkProgress.includes(:book_specification).sorted(params[:sort])
   end
 
   def new

@@ -9,16 +9,28 @@ class WorkProgress < ApplicationRecord
   validate :start_time_after_today
   validate :end_time_after_start_time
 
-  scope :incomplete, -> { order(status: :asc) }
-  scope :complete,   -> { order(status: :desc) }
-  scope :newest,           -> { order(created_at: :desc) }
-  scope :editest,           -> { order(created_at: :asc) }
-  scope :floor_high, -> { order(floor: :desc) }
-  scope :floor_low,  -> { order(floor: :asc) }
-  # 部数が多い順
-  scope :copies_desc, -> { joins(:book_specification).order('book_specifications.number_of_copies DESC') }
-  # 部数が少ない順
-  scope :copies_asc, -> { joins(:book_specification).order('book_specifications.number_of_copies ASC') }
+  scope :sorted, ->(sort) {
+    case sort
+    when "status_asc"
+      order(status: :asc)
+    when "status_desc"
+      order(status: :desc)
+    when "number_copies_desc"
+      joins(:book_specification).order('book_specifications.number_of_copies DESC')
+    when "number_copies_asc"
+      joins(:book_specification).order('book_specifications.number_of_copies ASC')
+    when "floor_desc"
+      order(floor: :desc)
+    when "floor_asc"
+      order(floor: :asc)
+    when "deadline_desc"
+      joins(:book_specification).order('book_specifications.deadline DESC')
+    when "deadline_asc"
+      joins(:book_specification).order('book_specifications.deadline ASC')
+    else
+      order(created_at: :desc)
+    end
+  }
 
   private
 

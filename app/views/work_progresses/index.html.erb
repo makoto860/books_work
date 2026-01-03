@@ -1,17 +1,18 @@
 <p>Find me in app/views/work_progresses/index.html.erb</p>
 <h1>作業進捗一覧</h1>
 <%= form_with url: book_specification_work_progresses_path(@book_specification), method: :get, local: true do |f| %>
-  <%= f.select :sort, @sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
+  <%= f.select :sort, @work_progresses_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
 <% end %>
 <ul>
   <% @work_progresses.each do |work_progress| %>
     <% if work_progress.status == "1" %>
-      <li>作業状況は完了しています</li>
+    <li>作業状況は完了しています</li>
     <% else %>
-      <li>作業状況は未完了です</li>
+    <li>作業状況は未完了です</li>
     <% end %>
-    <li><%= work_progress.floor %>階</li>
-    <li>部数: <%= work_progress.book_specification.number_of_copies %></li>
+    <li>階数: <%= work_progress.floor %>階</li>
+    <li>部数: <%= work_progress.book_specification.number_of_copies %>部</li>
+    <li>納期: <%= work_progress.book_specification.deadline.to_formatted_s(:date_jp) %></li>
     <li>作成時間: <%= work_progress.created_at.to_formatted_s(:datetime_jp) %></li>
     <li>更新時間: <%= work_progress.updated_at.to_formatted_s(:datetime_jp) %></li>
     <li><%= link_to "作業進捗情報", book_specification_work_progress_path(work_progress.book_specification, work_progress) %></li>
@@ -19,3 +20,4 @@
     <br>
   <% end %>
 </ul>
+    

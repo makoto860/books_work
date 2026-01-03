@@ -1,6 +1,4 @@
 <h1>BookSpecifications#index</h1>
-<h2>仕様書並び替え</h2>
-納期
 <%= form_with url: book_specifications_path, method: :get, local: true do |f| %>
   <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
 <% end %>

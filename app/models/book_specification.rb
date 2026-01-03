@@ -18,14 +18,6 @@ class BookSpecification < ApplicationRecord
       order(deadline: :desc)
     when "deadline_asc"
       order(deadline: :asc)
-    when "created_desc"
-      order(created_at: :desc)
-    when "created_asc"
-      order(created_at: :asc)
-    when "updated_desc"
-      order(updated_at: :desc)
-    when "updated_asc"
-      order(updated_at: :asc)
     else
       order(created_at: :desc)
     end
