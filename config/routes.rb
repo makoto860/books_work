@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :book_specifications do
-    resources :work_progresses, only: [:index, :create, :show, :edit, :update]
+    resources :work_progresses
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -2,7 +2,7 @@
 <h1>作業進捗一覧</h1>
 <%= form_with url: book_specification_work_progresses_path(@book_specification), method: :get, local: true do |f| %>
   <%= f.select :sort, @work_progresses_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
-<% end %>
+<% end %>  
 <ul>
   <% @work_progresses.each do |work_progress| %>
     <% if work_progress.status == "1" %>
