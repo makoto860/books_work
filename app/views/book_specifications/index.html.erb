@@ -7,6 +7,13 @@
     <li><%= link_to "仕様書を新規作成", :new_book_specification %></li>
   <% end %>
 </ul>
+
+<h1>タイトル検索</h1>
+<%= form_with(url: book_specifications_path, local: true, method: :get, class: "keyword-search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "本のタイトル", class: "keyword-search-input" %>
+  <%= form.submit "タイトル検索", class: "search-btn" %>
+<% end %>
+
 <%= form_with url: book_specifications_path, method: :get, local: true do |f| %>
   <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
 <% end %>

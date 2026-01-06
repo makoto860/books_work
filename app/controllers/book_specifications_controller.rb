@@ -5,14 +5,25 @@ class BookSpecificationsController < ApplicationController
     @book_specifications = BookSpecification.all
     @book_specification = @book_specifications.first
 
+    # タイトル検索
+    if params[:keyword].present?
+      @book_specifications = @book_specifications.where(
+        "title LIKE ?",
+        "%#{params[:keyword]}%"
+      )
+    end
+
+    # 🔽 ソート
+    if params[:sort].present?
+      @book_specifications = @book_specifications.sorted(params[:sort])
+    end
+
     @book_specification_sort_list = [
       ["部数(多い順)", "number_of_copies_desc"],
       ["部数(少ない順)", "number_of_copies_asc"],
       ["納期(新しい順)", "deadline_desc"],
       ["納期(古い順)", "deadline_asc"]
     ]
-
-    @book_specifications = BookSpecification.sorted(params[:sort])
   end
 
   def new
