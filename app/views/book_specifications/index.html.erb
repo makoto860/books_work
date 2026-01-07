@@ -1,17 +1,17 @@
 <h1>BookSpecifications#index</h1>
-<ul>
-  <% if @book_specification.present? %>
+<h1>仕様書タイトル検索</h1>
+<%= form_with(url: book_specifications_path, local: true, method: :get, class: "title-search-form") do |form| %>
+  <%= form.text_field :title_search, placeholder: "本のタイトル", class: "title-search-input" %>
+  <%= form.submit "検索", class: "title-search-btn" %>
+<% end %>
+
+<% if @book_specification.present? %>
+  <ul>
     <li><%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %></li>
     <li><%= link_to "仕様書を新規作成", :new_book_specification %></li>
   <% else %>
     <li><%= link_to "仕様書を新規作成", :new_book_specification %></li>
-  <% end %>
-</ul>
-
-<h1>タイトル検索</h1>
-<%= form_with(url: book_specifications_path, local: true, method: :get, class: "keyword-search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "本のタイトル", class: "keyword-search-input" %>
-  <%= form.submit "タイトル検索", class: "search-btn" %>
+  </ul>
 <% end %>
 
 <%= form_with url: book_specifications_path, method: :get, local: true do |f| %>

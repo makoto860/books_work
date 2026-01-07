@@ -6,14 +6,11 @@ class BookSpecificationsController < ApplicationController
     @book_specification = @book_specifications.first
 
     # タイトル検索
-    if params[:keyword].present?
-      @book_specifications = @book_specifications.where(
-        "title LIKE ?",
-        "%#{params[:keyword]}%"
-      )
+    if params[:title_search].present?
+      @book_specifications = @book_specifications.where("title LIKE ?", "%#{params[:title_search]}%")
     end
 
-    # 🔽 ソート
+    # ソート
     if params[:sort].present?
       @book_specifications = @book_specifications.sorted(params[:sort])
     end

@@ -3,6 +3,12 @@ class WorkProgressesController < ApplicationController
   before_action :set_work_progress, only: [:show, :edit, :update]
 
   def index
+    @work_progresses = WorkProgress.includes(:book_specification)
+
+    if params[:floor].present?
+      @work_progresses = @work_progresses.where(floor: params[:floor])
+    end
+
     @work_progresses_sort_list = [
       ["未完了順", "status_asc"],
       ["完了順", "status_desc"],
@@ -13,8 +19,6 @@ class WorkProgressesController < ApplicationController
       ["納期が近い順", "deadline_desc"],
       ["納期が遠い順", "deadline_asc"]
     ]
-
-    @work_progresses = WorkProgress.includes(:book_specification).sorted(params[:sort])
   end
 
   def new
