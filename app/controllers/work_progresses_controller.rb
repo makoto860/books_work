@@ -4,11 +4,15 @@ class WorkProgressesController < ApplicationController
 
   def index
     @work_progresses = WorkProgress.includes(:book_specification)
-
+    # フロア検索
     if params[:floor].present?
       @work_progresses = @work_progresses.where(floor: params[:floor])
     end
-
+    # タイトル検索
+    if params[:title_search].present?
+      @work_progresses = @work_progresses.joins(:book_specification).where("book_specifications.title LIKE ?", "%#{params[:title_search]}%")
+    end
+    # 並び替え
     @work_progresses_sort_list = [
       ["未完了順", "status_asc"],
       ["完了順", "status_desc"],
@@ -19,6 +23,8 @@ class WorkProgressesController < ApplicationController
       ["納期が近い順", "deadline_desc"],
       ["納期が遠い順", "deadline_asc"]
     ]
+    # ソート適用
+    @work_progresses = @work_progresses.sorted(params[:sort])
   end
 
   def new

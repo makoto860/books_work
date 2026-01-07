@@ -19,7 +19,7 @@ class BookSpecification < ApplicationRecord
     when "deadline_asc"
       order(deadline: :asc)
     else
-      order(created_at: :desc)
+      order(id: :asc)
     end
   }
 

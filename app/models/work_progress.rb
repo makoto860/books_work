@@ -28,7 +28,7 @@ class WorkProgress < ApplicationRecord
     when "deadline_asc"
       joins(:book_specification).order('book_specifications.deadline ASC')
     else
-      order(created_at: :desc)
+      order(id: :asc)
     end
   }
 

@@ -1,10 +1,10 @@
 <h1>BookSpecifications#index</h1>
-<h1>仕様書タイトル検索</h1>
-<%= form_with(url: book_specifications_path, local: true, method: :get, class: "title-search-form") do |form| %>
-  <%= form.text_field :title_search, placeholder: "本のタイトル", class: "title-search-input" %>
-  <%= form.submit "検索", class: "title-search-btn" %>
+<%= form_with(url: book_specifications_path, local: true, method: :get, class: "title-sort-search-form") do |f| %>
+  <%= f.text_field :title_sort_search, placeholder: "本のタイトルで検索", class: "title-search-input" %>
+  <br>
+  <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
+  <%= f.submit "検索", class: "title-search-btn" %>
 <% end %>
-
 <% if @book_specification.present? %>
   <ul>
     <li><%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %></li>
@@ -12,10 +12,6 @@
   <% else %>
     <li><%= link_to "仕様書を新規作成", :new_book_specification %></li>
   </ul>
-<% end %>
-
-<%= form_with url: book_specifications_path, method: :get, local: true do |f| %>
-  <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
 <% end %>
 <h3>仕様書一覧</h3>
 <ul>

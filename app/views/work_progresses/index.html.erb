@@ -1,16 +1,19 @@
 <p>Find me in app/views/work_progresses/index.html.erb</p>
 <h1>作業進捗一覧</h1> 
 <%= form_with url: book_specification_work_progresses_path(@book_specification), method: :get, local: true do |f| %>
-  <%= f.number_field :floor, placeholder: "階数" %>
+  <%= f.select :sort, [["デフォルト", ""], *@work_progresses_sort_list], { selected: params[:sort] }, onChange: "this.form.submit();" %>
+  <br>
+  <%= f.text_field :title_search, placeholder: "本のタイトルで検索", value: params[:title_search] %>
+  <%= f.number_field :floor, placeholder: "階数で検索", value: params[:floor] %>
   <%= f.submit "検索" %>
 <% end %>
 
 <ul>
   <% @work_progresses.each do |work_progress| %>
     <% if work_progress.status == "1" %>
-    <li>作業状況は完了しています</li>
+      <li>作業状況は完了しています</li>
     <% else %>
-    <li>作業状況は未完了です</li>
+      <li>作業状況は未完了です</li>
     <% end %>
     <li>階数: <%= work_progress.floor %>階</li>
     <li>タイトル: <%= work_progress.book_specification.title %></li>
