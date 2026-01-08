@@ -12,10 +12,12 @@
 </div>
 
 <%= form_with(url: book_specifications_path, local: true, method: :get, class: "title-sort-search-form") do |f| %>
+  <h2 class="fas fa-search"></h2>
   <%= f.text_field :title_sort_search, placeholder: "本のタイトルで検索", class: "title-search-input" %>
-  <br>
-  <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
   <%= f.submit "検索", class: "title-search-btn" %>
+  <br>
+  <h2 class="fas fa-arrows-alt-v"></h2>
+  <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, onChange: "this.form.submit();" %>
 <% end %>
 
 <% if @book_specification.present? %>
