@@ -1,19 +1,1 @@
 /* app/assets/stylesheets/book_specifications.css */
-.slider {
-  width: 600px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  min-width: 600px;
-  padding: 20px;
-  box-sizing: border-box;
-  background: #f9f9f9;
-  border-right: 1px solid #ddd;
-}

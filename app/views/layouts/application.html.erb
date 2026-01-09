@@ -18,14 +18,15 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <!--fontawesomeを記述-->
+    <%# fontawesomeを記述 %>
     <script src="https://kit.fontawesome.com/4957713640.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <header>
+      <h1>application.html.erb</h1>
       <h1>製本管理システム</h1>
       <%= link_to "仕様書一覧", book_specifications_path %>
       <% if flash[:notice] %>
