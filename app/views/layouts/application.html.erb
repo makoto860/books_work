@@ -27,8 +27,10 @@
   <body>
     <header>
       <h1>application.html.erb</h1>
-      <h1>製本管理システム</h1>
-      <%= link_to "仕様書一覧", book_specifications_path %>
+      <h2 class="app-title">製本管理システム</h2>
+      <div class="app-link">
+        <%= link_to "仕様書一覧", book_specifications_path, class: "btn-gradient" %>
+      </div>
       <% if flash[:notice] %>
         <h1 class="notice"><%= flash[:notice] %></h1>
       <% else %>
@@ -37,7 +39,9 @@
     </header>
     <%= yield %>
     <footer>
-      <h1>現在の日付：<%= Time.current.strftime("%Y年%m月%d日%H時%M分") %></h1>
+      <div class="footer-datetime">
+        現在の日付：<%= Time.current.strftime("%Y年%m月%d日%H時%M分") %>
+      </div>
     </footer>
   </body>
 </html>
