@@ -241,4 +241,21 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/**/
+/*new------------------------------------------------------------------------------------------------------------------------------*/
+.new-container {
+  text-align: center;
+}
+
+.new-lists {
+  list-style: none;
+  margin-top: 50px;
+}
+
+.spec-new-btn {
+  padding: 10px 20px;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  background-color: #8b5cf6;
+}
