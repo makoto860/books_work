@@ -268,3 +268,28 @@ html, body {
   color: red;
   list-style: none;
 }
+
+/* book_specifications/edit */
+.specifications-edit-container {
+  text-align: center;
+}
+
+.specifications-edit-required {
+  display: flex;
+  margin-left: 30%;
+  color: red;
+  margin-bottom: 50px;
+}
+
+.specifications-edit-lists {
+  list-style: none;
+}
+.specifications-edit-btn {
+  margin-top: 50px;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  background-color: #8b5cf6;
+}
