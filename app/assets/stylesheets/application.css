@@ -9,8 +9,10 @@
  * Consider organizing styles into separate files for maintainability.
  */
 /* app/assets/stylesheets/application.css */
-body {
-  background-color: #f8f9fa;
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
 
 .slider {
@@ -54,8 +56,9 @@ body {
 }
 
 .alert {
-  padding: 10px;
+  padding: 100px;
   color: #FF3300;
+  background-color: #fff;
 }
 
 .app-title {
@@ -241,7 +244,7 @@ body {
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/*new------------------------------------------------------------------------------------------------------------------------------*/
+/* book_specifications/new */
 .new-container {
   text-align: center;
 }
@@ -258,4 +261,10 @@ body {
   text-decoration: none;
   border: none;
   background-color: #8b5cf6;
+}
+
+/* shared/_error */
+.error-lists {
+  color: red;
+  list-style: none;
 }

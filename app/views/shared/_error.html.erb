@@ -1,7 +1,6 @@
 <% if model.errors.any? %>
-  <p>エラーメッセージ</p>
   <% model.errors.full_messages.each do |message| %>
-    <ul>
+    <ul class="error-lists">
       <li><%= message %></li>
     </ul>
   <% end %>
