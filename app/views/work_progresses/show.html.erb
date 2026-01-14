@@ -1,21 +1,24 @@
 <h1>work_progresses/show.html.erb</h1>
-<h1>作業進捗情報</h1>
-<%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
-<%= link_to "作業進捗を編集", edit_book_specification_work_progress_path(@book_specification) %>
-<ul>
-  <li>仕様書のID: <%= @work_progress.book_specification.id %></li>
-  <li>本のタイトル: <%= @work_progress.book_specification.title %></li>
-  <% if @work_progress.status == "1" %>
-    <li>作業完了しました</li>
-  <% else %>
-    <li>作業未完了です</li>
-  <% end %>
-  <li>部数: <%= @work_progress.book_specification.number_of_copies %></li>
-  <li>注意事項: <%= @work_progress.book_specification.note %></li>
-  <li>作業進捗ID: <%= @work_progress.id %></li>
-  <li><%= @work_progress.floor %>階</li>
-  <li>コメント: <%= @work_progress.comment %></li>
-  <li>作成時間: <%= @work_progress.start_time.to_formatted_s(:datetime_jp) %></li>
-  <li>変更時間: <%= @work_progress.end_time.to_formatted_s(:datetime_jp) %></li>
-  <li>担当者: <%= @work_progress.manager %></li>
-</ul>
+<div class="work-progress-show-container">
+  <h1>作業進捗情報</h1>
+  <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification), class: "work_progress-show-links" %>
+  <%= link_to "作業進捗を編集", edit_book_specification_work_progress_path(@book_specification), class: "work_progress-edit-links" %>
+
+  <ul class="work-progress-show-lists">
+    <li>仕様書のID: <%= @work_progress.book_specification.id %></li>
+    <li>本のタイトル: <%= @work_progress.book_specification.title %></li>
+    <% if @work_progress.status == "1" %>
+      <li>作業完了しました</li>
+    <% else %>
+      <li>作業未完了です</li>
+    <% end %>
+    <li>部数: <%= @work_progress.book_specification.number_of_copies %>部</li>
+    <li>注意事項: <%= @work_progress.book_specification.note %></li>
+    <li>作業進捗ID: <%= @work_progress.id %></li>
+    <li><%= @work_progress.floor %>階</li>
+    <li>コメント: <%= @work_progress.comment %></li>
+    <li>作成時間: <%= @work_progress.start_time.to_formatted_s(:datetime_jp) %></li>
+    <li>変更時間: <%= @work_progress.end_time.to_formatted_s(:datetime_jp) %></li>
+    <li>担当者: <%= @work_progress.manager %></li>
+  </ul>
+</div>
