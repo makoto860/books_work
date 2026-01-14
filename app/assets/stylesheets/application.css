@@ -307,8 +307,6 @@ html, body {
   margin-top: 50px;
 }
 
-
-
 /* book_specifications/edit */
 .specifications-edit-container {
   text-align: center;
@@ -344,4 +342,69 @@ html, body {
   text-decoration: none;
   background-color: #8b5cf6;
   margin-bottom: 50px;
+}
+
+/* work_progresses/index */
+.work_progresses-index-container {
+  text-align: center;
+}
+
+.work-progresses-title-sort-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.work-progresses-search-group {
+  margin-bottom: 10px;
+  color: #4f46e5;
+}
+
+.work-progresses-title-search-input {
+  margin-top: 50px;
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  width: 250px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.work-progresses-title-search-btn {
+  padding: 8px 16px;
+  background-color: #4f46e5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.work-progresses-sort-group {
+  color: #4f46e5;
+}
+
+.work-progress-index-lists {
+  list-style: none;
+}
+
+.work_progress-links-show {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8b5cf6;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.work_progress-links-edit {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8b5cf6;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 100px;
 }
