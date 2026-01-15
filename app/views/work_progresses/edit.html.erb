@@ -1,41 +1,43 @@
 <h1>app/views/work_progresses/edit.html.erb</h1>
-<h1 class="fas fa-edit">作業進捗を編集する</h1>
-<br>
-<%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification) %>
-<%= link_to "作業進捗情報", book_specification_work_progress_path(@book_specification) %>
-<%= render "shared/error", model: @work_progress %>
-<br>
-<h2 class="fas fa-star fa-spin"></h2>
-<h2>作業状態、階数、開始時間、終了時間、作成者は必須です</h2>
-<ul>
-  <%= form_with model: [@book_specification, @work_progress], local: true do |f| %>
-    <li>作業状態</li>
-    <li>
-      <%= f.radio_button :status, "1" %>完了
-      <%= f.radio_button :status, "0" %>未完了
-    </li>
-    <li>
-      <%= f.label :floor, "階数" %>
-      <%= f.number_field :floor %>階
-    </li>
-    <li>
-      <%= f.label :comment, "コメント" %>
-      <%= f.text_field :comment %>
-    </li>
-    <li>
-      <%= f.label :start_time, "開始時間" %>
-      <%= f.datetime_local_field :start_time %>
-    </li>
-    <li>
-      <%= f.label :end_time, "終了時間" %>
-      <%= f.datetime_local_field :end_time %>
-    </li>
-    <li>
-      <%= f.label :manager, "担当者" %>
-      <%= f.text_field :manager %>
-    </li>
-    <div>
-      <%= f.submit "作業進捗を編集する" %>
-    </div>
-  <% end %>
-<ul>
+<div class="work-progress-edit-container">
+  <h1>作業進捗を編集する</h1>
+  <%= render "shared/error", model: @work_progress %>
+  <p><%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification), class: "work-progress-links-index" %></p>
+  <p><%= link_to "作業進捗情報", book_specification_work_progress_path(@book_specification), class: "work-progress-links-show" %></p>
+
+  <div class="work-progress-edit-required">
+    <h2 class="fas fa-star fa-spin"></h2>
+    <h2>作業状態、階数、開始時間、終了時間、担当者は必須です</h2>
+  </div>
+
+  <ul class="work-progress-edit-lists">
+    <%= form_with model: [@book_specification, @work_progress], local: true do |f| %>
+      <li>
+        作業状態
+        <%= f.radio_button :status, "1" %>完了
+        <%= f.radio_button :status, "0" %>未完了
+      </li>
+      <li>
+        <%= f.label :floor, "階数" %>
+        <%= f.number_field :floor %>階
+      </li>
+      <li>
+        <%= f.label :comment, "コメント" %>
+        <%= f.text_field :comment %>
+      </li>
+      <li>
+        <%= f.label :start_time, "開始時間" %>
+        <%= f.datetime_local_field :start_time %>
+      </li>
+      <li>
+        <%= f.label :end_time, "終了時間" %>
+        <%= f.datetime_local_field :end_time %>
+      </li>
+      <li>
+        <%= f.label :manager, "担当者" %>
+        <%= f.text_field :manager %>
+      </li>
+      <%= f.submit "作業進捗を編集する", class: "specifications-edit-btn" %>
+    <% end %>
+  </ul>
+</div>

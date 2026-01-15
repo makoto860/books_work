@@ -98,6 +98,7 @@ html, body {
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.25s ease;
+  margin-bottom: 100px;
 }
 
 .footer-datetime:hover {
@@ -265,7 +266,7 @@ html, body {
 
 /* shared/_error */
 .error-lists {
-  color: red;
+  color: #FF3366;
   list-style: none;
 }
 
@@ -288,7 +289,7 @@ html, body {
 .specifications-show-required {
   display: flex;
   margin-left: 27%;
-  color: red;
+  color: #FF3366;
   margin-bottom: 50px;
 }
 
@@ -315,7 +316,7 @@ html, body {
 .specifications-edit-required {
   display: flex;
   margin-left: 30%;
-  color: red;
+  color: #FF3366;
   margin-bottom: 50px;
 }
 
@@ -439,20 +440,40 @@ html, body {
   background-color: #e5e7eb;
 }
 
-.work-progress-show-container {
+/* work_progresses/edit */
+.work-progress-edit-container {
+  text-align: center;
 }
 
-.work-progress-show-container {
+.work-progress-links-index {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8b5cf6;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.work-progress-show-container {
+.work-progress-links-show {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8b5cf6;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-bottom: 20px;
 }
 
-.work-progress-show-container {
+.work-progress-edit-required {
+  display: flex;
+  justify-content: center;
+  color: #FF3300;
 }
 
-.work-progress-show-container {
-}
-
-.work-progress-show-container {
+.work-progress-edit-lists {
+  list-style: none;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
