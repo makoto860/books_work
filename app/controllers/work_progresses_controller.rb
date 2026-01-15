@@ -1,6 +1,6 @@
 class WorkProgressesController < ApplicationController
   before_action :set_book_specification
-  before_action :set_work_progress, only: [:show, :edit, :update]
+  before_action :set_work_progress, only: [ :show, :edit, :update ]
 
   def index
     @work_progresses = WorkProgress.includes(:book_specification)
@@ -14,14 +14,14 @@ class WorkProgressesController < ApplicationController
     end
     # 並び替え
     @work_progresses_sort_list = [
-      ["未完了順", "status_asc"],
-      ["完了順", "status_desc"],
-      ["部数が多い順", "number_copies_desc"],
-      ["部数が少ない順", "number_copies_asc"],
-      ["階数が高い順", "floor_desc"],
-      ["階数が低い順", "floor_asc"],
-      ["納期が近い順", "deadline_desc"],
-      ["納期が遠い順", "deadline_asc"]
+      [ "未完了順", "status_asc" ],
+      [ "完了順", "status_desc" ],
+      [ "部数が多い順", "number_copies_desc" ],
+      [ "部数が少ない順", "number_copies_asc" ],
+      [ "階数が高い順", "floor_desc" ],
+      [ "階数が低い順", "floor_asc" ],
+      [ "納期が近い順", "deadline_desc" ],
+      [ "納期が遠い順", "deadline_asc" ]
     ]
     # ソート適用
     @work_progresses = @work_progresses.sorted(params[:sort])
@@ -58,15 +58,15 @@ class WorkProgressesController < ApplicationController
 
   private
 
-    def set_book_specification
-      @book_specification = BookSpecification.find(params[:book_specification_id])
-    end
+  def set_book_specification
+    @book_specification = BookSpecification.find(params[:book_specification_id])
+  end
 
-    def set_work_progress
-      @work_progress = @book_specification.work_progresses.find(params[:id])
-    end
+  def set_work_progress
+    @work_progress = @book_specification.work_progresses.find(params[:id])
+  end
 
-    def work_progress_params
-      params.require(:work_progress).permit(:status, :floor, :comment, :start_time, :end_time, :manager)
-    end
+  def work_progress_params
+    params.require(:work_progress).permit(:status, :floor, :comment, :start_time, :end_time, :manager)
+  end
 end

@@ -1,4 +1,3 @@
-<h1>book_specifications/show.html.erb</h1>
 <div class="specifications-show-container">
   <h1>仕様書情報</h1>
   <ul class="specifications-show-lists">
@@ -23,9 +22,8 @@
   </div>
   <ul class="work_progress-lists">
     <%= form_with model: [@book_specification, @work_progress] do |f| %>
-      <li>作業状態</li>
       <li>
-        <%= f.radio_button :status, "1" %>完了
+        作業状態:<%= f.radio_button :status, "1" %>完了
         <%= f.radio_button :status, "0" %>未完了
       </li>
       <li>階数: <%= f.number_field :floor, value: 1 %></li>

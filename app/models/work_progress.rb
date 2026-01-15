@@ -16,17 +16,17 @@ class WorkProgress < ApplicationRecord
     when "status_desc"
       order(status: :desc)
     when "number_copies_desc"
-      joins(:book_specification).order('book_specifications.number_of_copies DESC')
+      joins(:book_specification).order("book_specifications.number_of_copies DESC")
     when "number_copies_asc"
-      joins(:book_specification).order('book_specifications.number_of_copies ASC')
+      joins(:book_specification).order("book_specifications.number_of_copies ASC")
     when "floor_desc"
       order(floor: :desc)
     when "floor_asc"
       order(floor: :asc)
     when "deadline_desc"
-      joins(:book_specification).order('book_specifications.deadline DESC')
+      joins(:book_specification).order("book_specifications.deadline DESC")
     when "deadline_asc"
-      joins(:book_specification).order('book_specifications.deadline ASC')
+      joins(:book_specification).order("book_specifications.deadline ASC")
     else
       order(id: :asc)
     end

@@ -1,5 +1,5 @@
 class BookSpecificationsController < ApplicationController
-  before_action :set_book_specification, only: [:show, :edit, :update, :destroy]
+  before_action :set_book_specification, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @book_specifications = BookSpecification.all
@@ -16,11 +16,11 @@ class BookSpecificationsController < ApplicationController
     end
 
     @book_specification_sort_list = [
-      ["デフォルト"],
-      ["部数(多い順)", "number_of_copies_desc"],
-      ["部数(少ない順)", "number_of_copies_asc"],
-      ["納期(新しい順)", "deadline_desc"],
-      ["納期(古い順)", "deadline_asc"]
+      [ "デフォルト" ],
+      [ "部数(多い順)", "number_of_copies_desc" ],
+      [ "部数(少ない順)", "number_of_copies_asc" ],
+      [ "納期(新しい順)", "deadline_desc" ],
+      [ "納期(古い順)", "deadline_asc" ]
     ]
   end
 
