@@ -63,3 +63,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# PostgreSQLを本番用
+group :production do
+  gem 'pg'
+end
