@@ -64,7 +64,12 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# PostgreSQLを本番用
+# 開発・テスト環境用
+group :development, :test do
+  gem "sqlite3", ">= 2.1"
+end
+
+# 本番環境用
 group :production do
-  gem 'pg'
+  gem "pg"
 end
