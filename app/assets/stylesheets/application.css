@@ -9,17 +9,16 @@
  * Consider organizing styles into separate files for maintainability.
  */
 /* app/assets/stylesheets/application.css */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
+
+.slider-text {
+  text-align: center;
 }
 
 .slider {
   width: 600px;
   overflow: hidden;
-  border: 1px solid #ccc;
-  margin-left: 30%;
+  border: 2px solid #ccc;
+  margin-left: 32%;
 }
 
 .slider-track {
@@ -29,14 +28,11 @@ html, body {
 
 .slide {
   min-width: 600px;
-  padding: 20px;
-  box-sizing: border-box;
-  background: #f5f5f5;
-  border-right: 1px solid #ddd;
 }
 
 .spec-contents {
-  color: #00bfff;
+  color: #fff;
+  background-color: #000;
   text-align: center;
 }
 
@@ -47,7 +43,8 @@ html, body {
   background: #4f46e5;
   color: #fff;
   border-radius: 8px;
-  transition: all 0.25s ease;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .notice {

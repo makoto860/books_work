@@ -1,13 +1,12 @@
+<h2 class="slider-text">納期近い順</h2>
 <div class="slider" data-controller="slider">
   <div class="slider-track" data-slider-target="track">
     <% @book_specifications.each do |book_specification| %>
       <div class="slide" data-slider-target="slide">
         <div class="spec-card">
           <div class="spec-contents">
-            <%= book_specification.title %>
-            <br>
-            納期：<%= book_specification.deadline&.to_formatted_s(:date_jp) %>
-            <br>
+            <h2><%= book_specification.title %></h2>
+            <h2>納期：<%= book_specification.deadline&.to_formatted_s(:date_jp) %></h2>
             <%= link_to "仕様書情報", book_specification, class: "spec-button" %>
           </div>
         </div>

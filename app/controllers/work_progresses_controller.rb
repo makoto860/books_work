@@ -20,8 +20,8 @@ class WorkProgressesController < ApplicationController
       [ "部数が少ない順", "number_copies_asc" ],
       [ "階数が高い順", "floor_desc" ],
       [ "階数が低い順", "floor_asc" ],
-      [ "納期が近い順", "deadline_desc" ],
-      [ "納期が遠い順", "deadline_asc" ]
+      [ "納期が近い順", "deadline_asc" ],
+      [ "納期が遠い順", "deadline_desc" ]
     ]
     # ソート適用
     @work_progresses = @work_progresses.sorted(params[:sort])
