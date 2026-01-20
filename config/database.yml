@@ -23,6 +23,13 @@ test:
 
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
+
+# export DATABASE_URL="postgres://user:password@localhost:5432/my_app_production"
+
+# echo 'export DATABASE_URL="postgres://user:password@localhost:5432/my_app_production"' >> ~/.zshrc
+# source ~/.zshrc
+
+
 production:
   primary:
     <<: *default

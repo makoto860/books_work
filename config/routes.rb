@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'homes/top'
+  devise_for :users
   resources :book_specifications do
     resources :work_progresses
   end
@@ -14,5 +16,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "book_specifications#index"
+  root "homes#top"
 end
