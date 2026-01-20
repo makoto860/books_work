@@ -1,0 +1,37 @@
+<div class="specifications-show-container">
+  <h1>仕様書情報</h1>
+  <ul class="specifications-show-lists">
+    <li>仕様書のID: <%= @book_specification.id %></li>
+    <li>本のタイトル: <%= @book_specification.title %></li>
+    <li>部数: <%= @book_specification.number_of_copies %>部</li>
+    <li>台数: <%= @book_specification.number_of_machines %>台</li>
+    <li>注意事項: <%= @book_specification.note %></li>
+    <li>納期: <%= @book_specification.deadline.to_formatted_s(:date_jp) %></li>
+    <li>作成者: <%= @book_specification.author %></li>
+    <li>作成した時間: <%= @book_specification.created_at.to_formatted_s(:datetime_jp) %></li>
+    <li>変更した時間: <%= @book_specification.updated_at.to_formatted_s(:datetime_jp) %></li>
+  </ul>
+  <%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification), class: "specifications-show-btn" %>
+</div>
+<div class="specifications-workprogress-container">
+  <%= render "shared/error", model: @work_progress %>
+  <h1 class="work_progress-form">作業進捗登録フォーム</h1>
+  <div class="specifications-show-required">
+    <h2 class="fas fa-star fa-spin"></h2>
+    <h2>作業状態、階数、開始時間、終了時間、担当者は必須です</h2>
+  </div>
+  <ul class="work_progress-lists">
+    <%= form_with model: [@book_specification, @work_progress] do |f| %>
+      <li>
+        作業状態:<%= f.radio_button :status, "1" %>完了
+        <%= f.radio_button :status, "0" %>未完了
+      </li>
+      <li>階数: <%= f.number_field :floor, value: 1 %></li>
+      <li>コメント: <%= f.text_area :comment %></li>
+      <li>開始時間: <%= f.datetime_local_field :start_time %></li>
+      <li>終了時間: <%= f.datetime_local_field :end_time %></li>
+      <li>担当者: <%= f.text_field :manager, placeholder: "必須" %></li>
+      <%= f.submit "作業進捗を登録する", class: "work_progress-show-btn" %>
+    <% end %>
+  </ul>
+<div>

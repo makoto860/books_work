@@ -1,0 +1,36 @@
+<div class="work_progresses-index-container">
+  <h1>作業進捗一覧</h1>
+  <%= form_with url: book_specification_work_progresses_path(@book_specification), method: :get, class: "work-progresses-title-sort-search-form", local: true do |f| %>
+    <div class="work-progresses-search-group">
+      <h3 class="fas fa-search"></h3>
+      <%= f.text_field :title_search, placeholder: "本のタイトルで検索", value: params[:title_search], class: "work-progresses-title-search-input" %>
+      <%= f.number_field :floor, placeholder: "階数で検索", value: params[:floor] %>
+      <%= f.submit "検索", class: "work-progresses-title-search-btn" %>
+    </div>
+
+    <div class="work-progresses-sort-group">
+      <h4 class="fas fa-arrows-alt-v"></h4>
+      <%= f.select :sort, [["デフォルト", ""], *@work_progresses_sort_list], { selected: params[:sort] }, onChange: "this.form.submit();" %>
+    </div>
+  <% end %>
+
+  <ul class="work-progress-index-lists">
+    <% @work_progresses.each do |work_progress| %>
+      <li>
+        <% if work_progress.status == "1" %>
+          作業状況は完了しています
+        <% else %>
+          作業状況は未完了です
+        <% end %>
+      </li>
+      <li>階数: <%= work_progress.floor %>階</li>
+      <li>タイトル: <%= work_progress.book_specification.title %></li>
+      <li>部数: <%= work_progress.book_specification.number_of_copies %>部</li>
+      <li>納期: <%= work_progress.book_specification.deadline.to_formatted_s(:date_jp) %></li>
+      <li>作成時間: <%= work_progress.created_at.to_formatted_s(:datetime_jp) %></li>
+      <li>更新時間: <%= work_progress.updated_at.to_formatted_s(:datetime_jp) %></li>
+      <li><%= link_to "作業進捗情報", book_specification_work_progress_path(work_progress.book_specification, work_progress), class: "work_progress-links-show" %></li>
+      <li><%= link_to "作業進捗を編集", edit_book_specification_work_progress_path(work_progress.book_specification, work_progress), class: "work_progress-links-edit" %></li>
+    <% end %>
+  </ul>
+</div>

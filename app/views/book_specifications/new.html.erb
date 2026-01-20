@@ -1,0 +1,26 @@
+<div class="new-container" >
+  <%= render "shared/error", model: @book_specification %>
+  <h1>仕様書新規作成</h1>
+  <%= form_with model: @book_specification do |f| %>
+    <ul class="new-lists">
+      <li><%= f.label :title, "タイトル名" %></li>
+      <li><%= f.text_field :title, placeholder: "必須" %></li>
+
+      <li><%= f.label :number_of_copies, "部数" %></li>
+      <li><%= f.number_field :number_of_copies, placeholder: "必須" %></li>
+
+      <li><%= f.label :number_of_machines, "台数" %></li>
+      <li><%= f.number_field :number_of_machines, placeholder: "必須" %></li>
+
+      <li><%= f.label :note, "注意事項" %></li>
+      <li><%= f.text_area :note %></li>
+
+      <li><%= f.label :deadline, "納期(必須)" %></li>
+      <li><%= f.date_field :deadline %></li>
+
+      <li><%= f.label :author, "作成者" %></li>
+      <li><%= f.text_field :author, placeholder: "必須" %></li>
+    </ul>
+    <%= f.submit "仕様書の登録を完了する", class: "spec-new-btn"%>
+  <% end %>
+</div>

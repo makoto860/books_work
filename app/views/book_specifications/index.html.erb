@@ -1,0 +1,59 @@
+<h2 class="slider-text">納期近い順</h2>
+<div class="slider" data-controller="slider">
+  <div class="slider-track" data-slider-target="track">
+    <% @book_specifications.each do |book_specification| %>
+      <div class="slide" data-slider-target="slide">
+        <div class="spec-card">
+          <div class="spec-contents">
+            <h2><%= book_specification.title %></h2>
+            <h2>納期：<%= book_specification.deadline&.to_formatted_s(:date_jp) %></h2>
+            <%= link_to "仕様書情報", book_specification, class: "spec-button" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= form_with(url: book_specifications_path, local: true, method: :get, class: "title-sort-search-form") do |f| %>
+  <div class="search-group">
+    <i class="fas fa-search search-icon"></i>
+    <%= f.text_field :title_sort_search, placeholder: "本のタイトルで検索", class: "title-search-input" %>
+    <%= f.submit "検索", class: "title-search-btn" %>
+  </div>
+
+  <div class="sort-group">
+    <i class="fas fa-arrows-alt-v sort-icon"></i>
+    <%= f.select :sort, @book_specification_sort_list, { selected: params[:sort] }, { class: "sort-select", onchange: "this.form.submit();" } %>
+  </div>
+<% end %>
+
+<% if @book_specification.present? %>
+  <ul class="spec-links">
+    <li><%= link_to "作業進捗一覧", book_specification_work_progresses_path(@book_specification), class: "spec-link-btn" %></li>
+    <li><%= link_to "仕様書を新規作成", new_book_specification_path, class: "spec-link-btn" %></li>
+  </ul>
+<% else %>
+  <ul class="spec-links">
+    <li><%= link_to "仕様書を新規作成", new_book_specification_path, class: "spec-link-btn" %></li>
+  </ul>
+<% end %>
+
+<h1 class="spec-index">仕様書一覧</h1>
+<div class="spec-list">
+  <% @book_specifications.each do |book_specification| %>
+    <div class="spec-card">
+      <p class="spec-title">本のタイトル: <%= book_specification.title %></p>
+      <p class="spec-detail">部数: <%= book_specification.number_of_copies %></p>
+      <p class="spec-detail">納期: <%= book_specification.deadline.to_formatted_s(:date_jp) %></p>
+      <p class="spec-detail">作成日: <%= book_specification.created_at.to_formatted_s(:datetime_jp) %></p>
+      <p class="spec-detail">更新日: <%= book_specification.updated_at.to_formatted_s(:datetime_jp) %></p>
+
+      <div class="spec-list-links">
+        <%= link_to "仕様書情報", book_specification, class: "spec-button" %>
+        <%= link_to "仕様書編集", edit_book_specification_path(book_specification), class: "spec-button" %>
+        <%= link_to "仕様書削除", book_specification, data: { turbo_method: :delete, turbo_confirm: "仕様書を削除しますか？" }, class: "spec-button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
