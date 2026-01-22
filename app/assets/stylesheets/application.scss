@@ -9,7 +9,10 @@
  * Consider organizing styles into separate files for maintainability.
  */
 /* app/assets/stylesheets/application.scss */
+@import "bootstrap";
+@import "devise";
 
+/* book_specifications/index.html.erb */
 .slider-text {
   text-align: center;
 }
