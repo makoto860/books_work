@@ -7,9 +7,10 @@
 
 .field {
   margin-top: 30px;
+  margin-bottom: 10px;
 }
 
-.new-session-btn {
+.devise-btn {
   padding: 10px 20px;
   color: white;
   border-radius: 999px;
@@ -31,4 +32,11 @@
   margin-bottom: 12px;
 }
 
+// app/views/devise/registrations/new.html.erb
+.registrations-new-container {
+  text-align: center;
+}
+
 //rails assets:precompile rails s
+
+// app/views/devise/registrations/new.html.erb
