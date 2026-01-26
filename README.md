@@ -1,24 +1,59 @@
-# README
+🟥アプリ名
+製本管理システム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+🟥開発の背景（なぜ作ったのか）
+以前製本の仕事を経験していた。
+仕様書見つけるのが難しかった。
+仕様書を直接渡す必要があった。
+他の階で作業しているので仕事の進捗を聞く必要がある。
 
-Things you may want to cover:
+以上を不便に感じました。
 
-* Ruby version
+🟥改善案
+仕様書を検索、並び替えを追加することで大量にある仕様書の中から見つけやすくすることで業務効率を上げる。
+仕様書を電子化することで他の場所にいてもリアルタイムで確認することができ、直接移動しなくても共有することが簡単にできる。
 
-* System dependencies
+🟥デモ画像
 
-* Configuration
+🟥操作方法
+初めはログイン画面になる。
+新規アカウント登録する。
+アカウントが作成され仕様書を登録、情報閲覧、編集、削除する。
+仕様書を登録したデータに作業進捗を登録、情報閲覧、編集する。
+ログアウトできる。
+以降登録したメールアドレス、パスワードでログインする。
 
-* Database creation
+🟥ポートフォリオで使用している技術や機能
+テストアカウントを用意。
+メールアドレス：test@example.com  
+パスワード：password
 
-* Database initialization
+アカウント、仕様書、作業進捗を登録、情報閲覧、編集、削除する機能。
+アカウント、仕様書、作業進捗を登録するときに日付など制限をかけらる機能。
+dartsass-rails、bootstrap、deviseを使用。
+fontawesomeを使用。
+検索、並び替え機能。
+納期の近い順でスライドを表示させる機能。
 
-* How to run the test suite
+言語
+ruby on railsで開発。
+HTML、CSS、JavaScriptを使用。
+開発環境
+ruby -v 3.3.3 (2024-06-12 revision f1c7b6f435) [arm64-darwin24]
+rails -v 8.0.4
+開発でsqlite3を使用、本番環境でPostgreSQLを使用。
+GitHubでプルリクエスト、Herokuでデプロイ。
 
-* Services (job queues, cache servers, search engines, etc.)
+🟥今後の課題
+個人のスマホで閲覧できるようレスポンシブを追加、崩れないようデザイン修正。
+写真を登録できるようにActive Storageを使用。
+納期が近づくとメッセージを変化できるようにする機能追加。
+長期的にデータが膨大になっても使用できるようspecを追加して安全性確保。
+新しいカラムが追加できるように調整。
 
-* Deployment instructions
+🟥ER図
+https://app.diagrams.net/ここで作成
 
-* ...
+🟥こだわりのポイントなど、アピールできる内容
+納期の日付を間違えると大変になるので並び替えで簡単に一覧表示できること。
+並び替えのほかに仕様書一覧表示の画面で納期が近い順でスライドさせることで  強調することでミスを減らせるように実装。
