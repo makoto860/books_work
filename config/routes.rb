@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'homes/top'
   devise_for :users
   resources :book_specifications do
     resources :work_progresses
