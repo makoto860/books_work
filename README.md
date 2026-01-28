@@ -13,8 +13,11 @@
 仕様書を電子化することで他の場所にいてもリアルタイムで確認することができ、直接移動しなくても共有することが簡単にできる。<br>
 
 🟥デモ画像
-app/assets/images/sign_in.png
 ![サインイン画面](app/assets/images/sign_in.png)
+![サインイン画面](app/assets/images/sign_up.png)
+![仕様書の画面](app/assets/images/book_specifications/index.png)
+![作業進捗の画面](app/assets/images/workprogresses/index.png)
+
 🟥操作方法<br>
 初めはログイン画面になる。<br>
 新規アカウント登録する。<br>
