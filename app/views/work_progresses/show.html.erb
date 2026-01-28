@@ -18,8 +18,8 @@
     <li>作業進捗ID: <%= @work_progress.id %></li>
     <li><%= @work_progress.floor %>階</li>
     <li>コメント: <%= @work_progress.comment %></li>
-    <li>作成時間: <%= @work_progress.start_time.to_formatted_s(:datetime_jp) %></li>
-    <li>変更時間: <%= @work_progress.end_time.to_formatted_s(:datetime_jp) %></li>
+    <li>開始時間: <%= @work_progress.start_time.to_formatted_s(:datetime_jp) %></li>
+    <li>終了時間: <%= @work_progress.end_time.to_formatted_s(:datetime_jp) %></li>
     <li>担当者: <%= @work_progress.manager %></li>
   </ul>
 </div>
