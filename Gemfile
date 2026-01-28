@@ -5,7 +5,7 @@ gem "rails", "~> 8.0.4"
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
 
-# 開発とテスト環境ではsqlite3を使う
+# 開発とテスト環境でsqlite3を使う
 gem "sqlite3", ">= 2.1", group: [ :development, :test ]
 
 # 本番環境ではPostgreSQLを使う
