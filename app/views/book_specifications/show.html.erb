@@ -16,10 +16,12 @@
 <div class="specifications-workprogress-container">
   <%= render "shared/error", model: @work_progress %>
   <h1 class="work_progress-form">作業進捗登録フォーム</h1>
+
   <div class="specifications-show-required">
-    <h2 class="fas fa-star fa-spin"></h2>
+    <h2 class="fas fa-star"></h2>
     <h2>作業状態、階数、開始時間、終了時間、担当者は必須です</h2>
   </div>
+
   <ul class="work_progress-lists">
     <%= form_with model: [@book_specification, @work_progress] do |f| %>
       <li>

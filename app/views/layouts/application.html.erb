@@ -27,14 +27,21 @@
   <body>
     <header>
       <h1 class="app-title">製本管理システム</h1>
-      <div class="app-link">
-        <%= link_to "仕様書一覧", book_specifications_path, class: "btn-gradient" %>
-      </div>
       <% if flash[:notice] %>
         <h1 class="notice"><%= flash[:notice] %></h1>
       <% else %>
         <h1 class="alert"><%= flash[:alert] %></h1>
       <% end %>
+
+      <div class="app-link">
+        <% if current_user.present? %>
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "ログアウトしますか？" }, class: "btn-gradient" %>
+          <%= link_to "仕様書一覧", book_specifications_path, class: "btn-gradient" %>
+          <%= link_to "ユーザーを編集する", edit_user_registration_path, class: "btn-gradient" %>
+        <% else %>
+          <%= link_to "新規ログイン", new_user_registration_path, class: "btn-gradient" %>
+        <% end %>
+      </div>
     </header>
     <%= yield %>
     <footer>

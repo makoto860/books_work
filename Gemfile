@@ -6,10 +6,10 @@ gem "propshaft"
 # Use sqlite3 as the database for Active Record
 
 # 開発とテスト環境ではsqlite3を使う
-gem 'sqlite3', ">= 2.1", group: [:development, :test]
+gem "sqlite3", ">= 2.1", group: [ :development, :test ]
 
 # 本番環境ではPostgreSQLを使う
-gem 'pg', group: :production
+gem "pg", group: :production
 
 # gem "sqlite3", ">= 2.1"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -48,7 +48,7 @@ gem "thruster", require: false
 
 gem "dartsass-rails"
 gem "bootstrap", "~> 5.3"
-gem 'devise'
+gem "devise"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
