@@ -15,8 +15,8 @@
 🟥デモ画像
 ![サインイン画面](app/assets/images/sign_in.png)
 ![サインイン画面](app/assets/images/sign_up.png)
-![仕様書の画面](app/assets/images/book_specifications/index.png)
-![作業進捗の画面](app/assets/images/work_progresses/index.png)
+![仕様書の画面](app/assets/images/book_specifications_index.png)
+![作業進捗の画面](app/assets/images/work_progresses_index.png)
 
 🟥操作方法<br>
 初めはログイン画面になる。<br>
