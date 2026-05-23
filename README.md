@@ -51,20 +51,16 @@ CSSの調整だけでは解決できなかったため、表示領域を見直�
 - Heroku（デプロイ）
 ---
 
-🟥ER図<br>
+## Railsを選んだ理由
+データの整合性を保ちやすい設計と、豊富なGemによる機能拡張性の高さに魅力を感じ、Ruby on Railsを選択しました。
+業務系アプリの開発において、認証やデータ管理を効率的に実装できる点も理由です。
+
+## ER図
 ![ER図](docs/er-diagram.png)
 
-🟥デモ画像
+## デモ画像
 ![サインイン画面](app/assets/images/sign_in.png)
 ![サインイン画面](app/assets/images/sign_up.png)
 ![スライド画面](app/assets/images/slide.png)
 ![仕様書の画面](app/assets/images/book_specifications_index.png)
 ![作業進捗の画面](app/assets/images/work_progresses_index.png)
-
-🟥操作方法<br>
-初めはログイン画面になる。<br>
-新規アカウント登録する。<br>
-アカウントが作成され仕様書を登録、情報閲覧、編集、削除する。<br>
-仕様書を登録したデータに作業進捗を登録、情報閲覧、編集する。<br>
-ログアウトできる。<br>
-以降登録したメールアドレス、パスワードでログインする。
