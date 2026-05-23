@@ -49,6 +49,7 @@ CSSの調整だけでは解決できなかったため、表示領域を見直�
 ## 開発・デプロイ環境
 - Git / GitHub（プルリクエストによる開発管理）
 - Heroku（デプロイ）
+-
 
 🟥ER図<br>
 ![ER図](docs/er-diagram.png)
